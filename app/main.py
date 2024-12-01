@@ -4,6 +4,13 @@ from typing import List, Optional
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
 
+
+import os
+import uvicorn
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if PORT is not set
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=False)
 # Initialize FastAPI
 app = FastAPI()
 
